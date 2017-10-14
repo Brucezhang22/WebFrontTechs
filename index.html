@@ -1,0 +1,76 @@
+<!-- 
+	/*
+		doctype
+		# means document type
+		# doctype for html5 is <!DOCTYPE html>
+		# to distinguish between a standard-compliant parsing mode and a quirks pasring mode
+	*/
+
+	/*
+		full standards mode, almost standards mode quirks mode
+		# quirks mode: 兼容模式，以IE5和网景4的渲染方式渲染页面，用来兼容比较老的网页
+		# full standards mode: 按照通用的标准来渲染页面
+		# almost standards mode: inline boxes that have no non-whitespace text as a child and have no border, padding, or margin
+	*/
+
+	/*
+		html and xhtml
+		# xhtml语法更严格
+		# xhtml的element和attribute区分大小写
+		# xhtml非标签处不能存在 "<" 和 "&"
+		# 语法错误会导致xhtml parse失败
+	*/
+	
+	/*
+		text/html and application/xhtml+xml
+		# text/html 以html的标准去解析
+		# application/xhtml+xml 以xhtml的标准解析
+		# application/xhtml+xml时，如果返回的文档格式不是标准的xml，页面报错
+		# IE8无法解析application/xhtml+xml，会以文件的形式被下载，IE9才开始支持
+	*/
+
+	
+
+ -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.container{
+			overflow: auto;	
+		}
+		.box1{
+			width: 200px;
+			height: 100px;
+			background-color: #ff2222;
+			/*float: left;*/
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			background-color: #22ff22;
+			float: right;
+		}
+		.clearfix:after{
+			content: " ";
+			visibility: hidden;
+			display: block;;
+			height: 0;
+			clear: both;
+		}
+		.page-break{
+			display: none;;
+			page-break-before: always;
+		}
+	</style>
+</head>
+<body>
+	<div id="log"></div>
+
+	<script src="main.js"></script>
+</body>
+</html>
