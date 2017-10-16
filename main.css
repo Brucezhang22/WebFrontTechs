@@ -1,0 +1,25 @@
+/*
+	id and class
+	# id是唯一的，可用于实现页面内跳转到某个hash
+	# class可以重复使用，主要用来给元素添加样式
+*/
+
+/*
+	resetting and normalizing css
+	# resettings css会把浏览器的默认样式归零
+	# normalizing css会保留浏览器的默认样式，而且会增加额外的样式使不同浏览器之间的显示效果差异最小
+*/
+
+/*
+	float
+	# float的元素依然存在于文档流当中，会影响其它元素
+	# float元素的父元素的高度会出现塌陷
+	# 清除浮动的方法：
+		1、<div style="clear: both;"></div>
+		2、父元素的overflow设置为auto或者hidden，这是一种hack，不推荐
+		3、在父元素的:after上设置: {content:' '; visiblity:hidden; display:block; height:0; clear:both;}
+*/
+
+/*
+	
+*/
