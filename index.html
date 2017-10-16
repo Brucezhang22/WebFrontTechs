@@ -29,7 +29,41 @@
 		# IE8无法解析application/xhtml+xml，会以文件的形式被下载，IE9才开始支持
 	*/
 
+	/*
+		serve a page in multiple languages
+		# 在请求的时候把需要显示的语言放在Accept-Language的头或者url parameterlim
+		# 返回的html里面也需要声明网页的语言：<html lang="en">...</html>
+	*/
+
+	/*
+		实现网站多语言支持的注意点
+		# <html lang="en">...</html>
+		# 提供给用户选择语言的入口，并可根据用户选择返回对应语言的网页
+		# 图片中尽量不要包含文字，或者为每种语言制作相应版本的图片
+		# 注意文字的长度不要引起样式的混乱，在中文中很短的文字在其它语言里面可能会变的很长
+		# 不同国家和地区对颜色的理解可能不一样，要注意选择合适的颜色
+		# 不同国家和地区习惯书写的日期格式可能不同，注意适配
+		# 货币的符号
+		# 注意不同语言之间翻译的准确性
+		# 注意阅读习惯的不同，比如传统中文／日语里面是从右到左开始读
+	*/
 	
+	/*
+		data-的作用
+		# 存放用户自定义的数据
+		# 现在用的比较少了，各种框架的流行导致用户数据更多的被定义和存放在js模型里面
+		# 缺点：用户可以在浏览器里面随意修改
+	*/
+
+	/*
+		html5的先进性:(https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+		# semantics: 语义性得到增强，增加了语义性比较好的元素：section, article, nav, header, footer, aside等
+		# connectivity: 增加了web socket, server-sent events, WebRTC
+		# offline && storage: 增加online, offline事件；增加sessionStorage和localStorage；增加FileReader
+		# multimedia: 增加audio, video标签；增加WebRTC；增加camera api；增加Track and WebVTT
+		# 3D graphics and effects: 
+	*/
+
 
  -->
 
