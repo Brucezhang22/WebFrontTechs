@@ -70,7 +70,7 @@
 		console.log("end main"); //5
 	}
 
-	main();
+	// main();
 })();
 
 /*
@@ -230,3 +230,63 @@
 	// resolveThenable();
 	// resolvePromise();
 })();
+
+/*
+	HEX color to RGB
+*/
+(function(){
+	function toRGB(colorInput){
+		var pattern1 = /^#[0-9a-zA-Z]{3}$/;
+		var pattern2 = /^#[0-9a-fA-F]{6}$/;
+		if(pattern1.test(colorInput)){
+			return colorInput;
+		}else if(pattern2.test(colorInput)){
+			var result = "rgb(num, num, num)";
+			for(var i = 1; i < colorInput.length; i+=2){
+				var subStr = colorInput.slice(i,i+2);
+				console.log(subStr);
+				var num = parseInt(subStr, 16);
+				result = result.replace("num", num);
+			}
+			return result;
+		}else{
+			return "invalid";
+		}
+	}
+
+	// console.log(toRGB("#ff0000"));
+	// console.log(toRGB("#ggg"));
+	// console.log(toRGB("#98798z"));
+
+})();
+
+(function(){
+	var Obj = function(msg){
+	    this.msg = msg;
+	    this.shout = function(){
+	        alert(this.msg);
+	    }  
+	    this.waitAndShout = function(){
+	    	var that = this;
+	        //隔五秒钟后执行上面的shout方法
+	        setTimeout(function(){
+	        	that.shout();
+	        }, 5000);
+	    }
+	}
+	// var obj = new Obj("hahaha");
+	// obj.waitAndShout();
+})();
+
+(function(){
+	function isValidEmail(email){
+		var pattern = /^(\w+([\.-_]?\w+))*@(\w+([\.-_]?\w+))(\.w{2,3})$/;
+		if (pattern.test(email)) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+})();
+
+

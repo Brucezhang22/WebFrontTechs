@@ -107,38 +107,23 @@
 <html>
 <head>
 	<title></title>
-	<style>
-		.container{
-			overflow: auto;	
-		}
-		.box1{
-			width: 200px;
-			height: 100px;
-			background-color: #ff2222;
-			/*float: left;*/
-		}
-		.box2{
-			width: 100px;
-			height: 100px;
-			background-color: #22ff22;
-			float: right;
-		}
-		.clearfix:after{
-			content: " ";
-			visibility: hidden;
-			display: block;;
-			height: 0;
-			clear: both;
-		}
-		.page-break{
-			display: none;;
-			page-break-before: always;
-		}
-	</style>
+<style type="text/css">
+    #page { width: 520px; }
+    .nav  { width: 200px; float: right; }
+    .main { width: 200px; float: left; padding-left: 110px; }    
+    .sub  { width: 100px; float: left; margin: 10px 0 10px -100px; }
+    .main { border: 1px solid #000; }
+    .nav, .sub { border: 1px dashed #000; height: 300px; }    
+    .sub { height: 280px; }
+</style>
 </head>
 <body>
-	<div id="log"></div>
-
+	<div id="page">
+	    <div class="main">
+	        <div class="sub"></div>
+	    </div>
+	    <div class="nav"></div>
+	</div>
 	<script src="main.js"></script>
 </body>
 </html>

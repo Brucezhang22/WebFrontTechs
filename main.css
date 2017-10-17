@@ -16,8 +16,79 @@
 	# float元素的父元素的高度会出现塌陷
 	# 清除浮动的方法：
 		1、<div style="clear: both;"></div>
-		2、父元素的overflow设置为auto或者hidden，这是一种hack，不推荐
+		2、父元素的overflow设置为auto或者hidden，可能有副作用
 		3、在父元素的:after上设置: {content:' '; visiblity:hidden; display:block; height:0; clear:both;}
+*/
+
+/*
+	z-index
+	# 用于设置元素垂直屏幕方向的叠加顺序，只对position不为static的元素有效
+	# 未设置z-index时，元素的叠加顺序为元素在DOM书中的顺序，最下面的元素叠加在最上面
+	# non-static定位的元素总是叠加在staic定位的元素上面
+	# 子元素的实际z-index不会大于父元素的z-index值
+*/
+
+/*
+	block formatting context
+	# 一个块格式化上下文是Web页面的可视化CSS渲染出的一部分，它是块级盒布局出现的区域，也是浮动层元素进行交互的区域
+	# 块格式上下文中，每个块元素的左边会贴着包含它的元素的左边沿
+	# 不同的块格式上下文不会相互影响
+	# 一个块格式化上下文满足下面一个条件即可创建：
+		1、根元素或包含它的元素
+		2、浮动元素（float不是none）
+		3、绝对定位元素（position为absolute或者fixed）
+		4、内联块元素（display为inline-block）
+		5、表格单元格（table-cell）
+		6、表格标题（table-caption）
+		7、overflow不是visible的块元素
+		8、display: flow-root
+		9、column-span: all;
+	# 块格式化上下文对于定位和清除浮动很重要
+	# 定位和清楚浮动的样式只适用于同一块格式上下文内的元素
+*/
+
+/*
+	css spirits
+	# 利用了css background的特性，把多张图片合并成一张大图，通过background-image， backgroud-position，background-size再取出单个的图片
+	# 能减少http请求
+	# 防止:hover, :active这种伪类的background-image出现懒加载造成闪跳;
+*/
+
+/*
+	fix browser-specific styling issue
+	# 使用reset.css或者normalize.css
+	# 使用bootstrap、semanticUI这样的前端框架
+	# 书写针对特定浏览器的css样式
+	# 加载针对特定浏览器的css，需要从服务端判断
+*/
+
+/*
+	serve pages feature-constrained browsers
+	# 优雅降级：先开发出能兼容高级浏览器的网站，再针对低版本浏览器做兼容
+	# 渐进增强：先开发出兼容低版本浏览器的网站，再针对高版本浏览器做功能的优化和增强
+	# 使用modernizr检测浏览器的兼容性
+	# 使用caniuse.com查询浏览器的兼容性
+	# 使用jquery、bootstrap这样的框架，它们内部实现已经解决了部分兼容性问题
+*/
+
+/*
+	ways to visually hide element
+	# display: none;
+	# visibility: hidden;
+	# width: 0; height: 0;
+	# position: absolute; left:-99999px;
+	# text-indent: -9999px;
+*/
+
+/*
+	optimize page for print
+	# <link rel="stylesheet" href="/print.css" media="print" />
+	# @media print {...}
+	# manually add page breaker
+		.page-breaker{
+			display: none;
+			page-break-before: always;
+		}
 */
 
 /*
