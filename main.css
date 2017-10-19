@@ -111,9 +111,29 @@
 /*
 	pseudo selectors
 	# 伪选择器分为伪类和伪元素
-	# 伪类选中的是处于某种特定状态的元素，用':'
+	# 伪类选中的是处于某种特定状态的元素，前缀为':'
+	# 伪元素选中的是元素的某个部分，前缀为'::'
+*/
 
+/*
+	explain box model
+	# 盒子模型是浏览器为DOM元素生成的一个矩形区域，用于布局时计算一个元素的位置、大小、和其它盒子模型的间隔
+	# 一个盒子模型包含content, padding, border, margin
+	# 如果box-sizing为content-box，则width和height设置的值为content的宽高
+	# 如果box-sizing为border-box，则width和height设置的值为content + padding + border的宽高
+*/
 
+/*
+	postioning
+	# relative: 相对于元素的默认位置偏移
+	# absolute: 元素会脱离文档流，位置是相对于第一个position为relative的上级元素，如果没有满足条件的上级元素，则相对于html元素
+	# fixed: 位置相对于view port
+	# sticky: 一开始为relative，当突破某个临界点后变为fixed
+*/
+
+/*
+	css selector specificity
+	# inline style > id selector > class/attribute/pseudo-class selector > tag/pseudo-element selector
 */
 
 div.container{
