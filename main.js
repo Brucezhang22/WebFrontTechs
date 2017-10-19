@@ -9,6 +9,64 @@
 */
 
 /*
+	how 'this' works
+	# this的指向取决于一个方法如何被调用
+	# new一个对象时，构造函数中的this指向被new出来的对象
+	# 一个独立的function中，this指向global object
+	# 调用一个对象的method，this指向这个对象
+	# 当用call或apply调用一个function时，this指向通过参数传入的对象
+*/
+
+/*
+	prototype
+	# 原型是javascript实现继承的方法，这种继承更类似于代理
+	# 每个对象都有一个原型的私有属性
+	# 当访问一个对象的属性或方法是，如果该对象自己未定义该属性或方法，则会去它的原型中找，沿着原型链一直往上寻找，直到找到为止
+	# 原型链的最上级是一个Object对象
+*/
+
+/*
+	AMD and CommonJs
+	# 都是常见的模块系统
+	# AMD是异步加载的，而CommonJs是同步的
+	# AMD比较适合浏览器环境，RequireJS实现了AMD
+	# CommonJs更适合服务器环境， NodeJs实现了CommonJS
+	# CommonJs语法更加简洁易用
+	# ES2015自带模块系统
+*/
+
+/*
+	null, undefined, undeclared
+	# null是一个确定的值
+	# undefind是变量被定义但是没呀被初始化
+	# undeclared是变量未被定义
+*/
+
+/*
+	closure
+	# 一个function内部定义的一个function就是closure
+	# 内部的function可以访问外部function的变量和参数，并保存起来，就算外部function return后也不会被GC回收
+	# closure可以用来构建私有变量和方法
+*/
+
+/*
+	anonymous functions
+	# 匿名function可以用于IIFE
+	# 可以作为一个callback参数
+*/
+
+/*
+	Function.prototype.bind
+	# 返回一个新的function
+	# 新function的this会指向传入的第一个参数
+*/
+
+/*
+	UA string
+	# navigator.userAgent
+*/
+
+/*
 	the definition of 'first-class function':
 	# a function is an instance of the Object type
 	# a function can have properties and has a link back to its constructor
@@ -289,4 +347,96 @@
 	}
 })();
 
+(function(){
+	/*用js生成：
+		<div id=”example”>  
+	    	<p class=”slogan”>京东商城</p>
+		</div>
+	*/
+	function generateElement(){
+		var divExample = document.createElement("div");
+		divExample.id = "example";
+		var pSlogan = document.createElement("p");
+		pSlogan.className = "pSlogan";
+		// pSlogan.appendChild(document.createTextNode("京东商城"));
+		pSlogan.innerHTML = "京东商城";
+		divExample.appendChild(pSlogan);
+		document.body.appendChild(divExample);
+	}
 
+	// window.onload = generateElement;
+
+})();
+
+(function(){
+
+	//编写一个通用的事件注册函数
+	function addEvent(element, eventType, handler){
+		if(element.addEventListener){
+			element.addEventListener(eventType, handler, false);
+		}else if(element.attachEvent){
+			element.attachEvent("on"+eventType, handler);
+		}else{
+			element["on"+eventType] = handler;
+		}
+	}
+
+})();
+
+(function(){
+
+	//给string增加一个trim方法
+
+		String.prototype.trim = function(){
+			return this.replace(/^\s*|\s*$/, '');
+		}
+
+	var str = "  水电费水电费       ";
+	console.log(str);
+	console.log(str.trim());
+
+})();
+
+(function(){
+
+	//把url中的参数解析并生成一个object
+	//http://www.example.com?key1=val1&key2=val2&key3=val3...&keyN=valN
+	function parseQueryString(url){
+		if (url.indexOf("?") !== -1) {
+			var queryPart = (url.split("?"))[1];
+			var queryPairs = queryPart.split("&");
+			console.log(queryPairs);
+			var queryObj = {};
+			queryPairs.forEach(function(item, index, haha){
+				var keyValue = item.split("=");
+				var key = keyValue[0];
+				var val = keyValue[1];
+				queryObj[key] = val;
+			});
+			return queryObj;
+		}else{
+			return {};
+		}
+	}
+
+	var url = "http://www.example.com?key1=val1&key2=val2&key3=val3&keyN=valN"
+
+})();
+
+(function(){
+
+	//删除数组中的重复元素并返回新数组
+	if (!Array.prototype.distinct) {
+		Array.prototype.distinct = function(){
+			var arr = this;
+		 	var result = arr.filter(function(item, index){
+				return arr.indexOf(item)===index;
+			});
+			console.log(result);
+			return result;
+		}
+	}
+
+	var arr = [1,2,3,4,2,1,3,4];
+	arr.distinct();
+})();

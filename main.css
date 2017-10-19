@@ -92,5 +92,53 @@
 */
 
 /*
-	
+	"gotchas" for writing efficient css
+	# 浏览器会从选择器链的右边往左匹配元素
+	# BEM命名法
 */
+
+/*
+	CSS preforcessors' pros and cons
+	# 可以更简洁的书写样式
+	# 选择器可以嵌套
+	# 可以定义变量
+	# 文件之间可以相互引用
+	# mixin这样的功能方便自动生成样式
+	# 编译会耗时
+	# 嵌套过多会导致选择器链变长，影响性能
+*/
+
+/*
+	pseudo selectors
+	# 伪选择器分为伪类和伪元素
+	# 伪类选中的是处于某种特定状态的元素，前缀为':'
+	# 伪元素选中的是元素的某个部分，前缀为'::'
+*/
+
+/*
+	explain box model
+	# 盒子模型是浏览器为DOM元素生成的一个矩形区域，用于布局时计算一个元素的位置、大小、和其它盒子模型的间隔
+	# 一个盒子模型包含content, padding, border, margin
+	# 如果box-sizing为content-box，则width和height设置的值为content的宽高
+	# 如果box-sizing为border-box，则width和height设置的值为content + padding + border的宽高
+*/
+
+/*
+	postioning
+	# relative: 相对于元素的默认位置偏移
+	# absolute: 元素会脱离文档流，位置是相对于第一个position为relative的上级元素，如果没有满足条件的上级元素，则相对于html元素
+	# fixed: 位置相对于view port
+	# sticky: 一开始为relative，当突破某个临界点后变为fixed
+*/
+
+/*
+	css selector specificity
+	# inline style > id selector > class/attribute/pseudo-class selector > tag/pseudo-element selector
+*/
+
+div.container{
+	width: 500px;
+	background-image: url(/img/sprite.png) no-repeat 0px -78px;
+}
+
+

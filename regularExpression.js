@@ -209,8 +209,6 @@
 		console.log(splits);
 	}
 
-	example1();
-
 })();
 
 
