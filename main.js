@@ -289,4 +289,96 @@
 	}
 })();
 
+(function(){
+	/*用js生成：
+		<div id=”example”>  
+	    	<p class=”slogan”>京东商城</p>
+		</div>
+	*/
+	function generateElement(){
+		var divExample = document.createElement("div");
+		divExample.id = "example";
+		var pSlogan = document.createElement("p");
+		pSlogan.className = "pSlogan";
+		// pSlogan.appendChild(document.createTextNode("京东商城"));
+		pSlogan.innerHTML = "京东商城";
+		divExample.appendChild(pSlogan);
+		document.body.appendChild(divExample);
+	}
 
+	// window.onload = generateElement;
+
+})();
+
+(function(){
+
+	//编写一个通用的事件注册函数
+	function addEvent(element, eventType, handler){
+		if(element.addEventListener){
+			element.addEventListener(eventType, handler, false);
+		}else if(element.attachEvent){
+			element.attachEvent("on"+eventType, handler);
+		}else{
+			element["on"+eventType] = handler;
+		}
+	}
+
+})();
+
+(function(){
+
+	//给string增加一个trim方法
+
+		String.prototype.trim = function(){
+			return this.replace(/^\s*|\s*$/, '');
+		}
+
+	var str = "  水电费水电费       ";
+	console.log(str);
+	console.log(str.trim());
+
+})();
+
+(function(){
+
+	//把url中的参数解析并生成一个object
+	//http://www.example.com?key1=val1&key2=val2&key3=val3...&keyN=valN
+	function parseQueryString(url){
+		if (url.indexOf("?") !== -1) {
+			var queryPart = (url.split("?"))[1];
+			var queryPairs = queryPart.split("&");
+			console.log(queryPairs);
+			var queryObj = {};
+			queryPairs.forEach(function(item, index, haha){
+				var keyValue = item.split("=");
+				var key = keyValue[0];
+				var val = keyValue[1];
+				queryObj[key] = val;
+			});
+			return queryObj;
+		}else{
+			return {};
+		}
+	}
+
+	var url = "http://www.example.com?key1=val1&key2=val2&key3=val3&keyN=valN"
+
+})();
+
+(function(){
+
+	//删除数组中的重复元素并返回新数组
+	if (!Array.prototype.distinct) {
+		Array.prototype.distinct = function(){
+			var arr = this;
+		 	var result = arr.filter(function(item, index){
+				return arr.indexOf(item)===index;
+			});
+			console.log(result);
+			return result;
+		}
+	}
+
+	var arr = [1,2,3,4,2,1,3,4];
+	arr.distinct();
+})();
