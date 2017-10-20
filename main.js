@@ -1,4 +1,18 @@
 /*
+	interpreted and compiled
+	# javascript是一种解释性语言
+	# 代码从上到下执行，执行的结果立即返回，不需要把js转换成另外一种可执行语言
+	# c/c++是一种编译性语言，代码必须转换成另外一种可执行语言（汇编）才能执行
+*/
+
+/*
+	server-side code and cliend-side code
+	# client-side code指在用户的终端设备上运行的代码
+	# server-side code指在服务器上运行的代码
+	# 
+*/
+
+/*
 	javascript data types
 	# string
 	# number
@@ -96,6 +110,13 @@
 	# 当call stack不满的时候，会从task queue中取出一个task并执行
 	# 一个task完全执行完才能执行下一个task
 	# 
+*/
+
+/*
+	event capturing and event bubbling
+	# event capturing: 父元素先响应事件
+	# event bubbling: 子元素先响应事件
+	# w3c model两种机制都实现了，先capture再bubble
 */
 
 (function(){
@@ -386,14 +407,11 @@
 (function(){
 
 	//给string增加一个trim方法
-
-		String.prototype.trim = function(){
-			return this.replace(/^\s*|\s*$/, '');
-		}
+	String.prototype.trim = function(){
+		return this.replace(/^\s*|\s*$/, '');
+	}
 
 	var str = "  水电费水电费       ";
-	console.log(str);
-	console.log(str.trim());
 
 })();
 
@@ -438,5 +456,5 @@
 	}
 
 	var arr = [1,2,3,4,2,1,3,4];
-	arr.distinct();
+	// arr.distinct();
 })();
